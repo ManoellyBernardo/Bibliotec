@@ -12,13 +12,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './views/home/home.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MaterialModule } from './material/material/material.module';
+import { HeaderComponent } from './components/header/header.component';
+import { LivrosComponent } from './views/livros/livros.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
+import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component';
+import { DetalhesComponent } from './components/detalhes/detalhes.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     InscreverComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    LivrosComponent,
+    DashboardComponent,
+    NovoEmprestimoComponent,
+    EditarEmprestimoComponent,
+    DetalhesComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +41,9 @@ import { MaterialModule } from './material/material/material.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ReactiveFormsModule,
     AngularFireAuthModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

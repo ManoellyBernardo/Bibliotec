@@ -1,18 +1,17 @@
-<mat-card class="container">
-    <mat-card-content class="card-container">
-        <mat-card-title>Login</mat-card-title>
-        <form class="form-container" [formGroup]="formLogin">
-            <mat-form-field appearance="fill">
-                <input type="email" placeholder="E-mail" matInput formControlName="email">
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <input type="password" placeholder="Senha" matInput formControlName="senha">
-            </mat-form-field>
-        </form>
-        <mat-card-actions class="form-container">
-            <button  mat-raised-button color="accent" type="submit" (click)="signInEmailAndPassword()">Entrar</button>
-            <button  mat-raised-button color="accent" (click)="signInGoogle()"><img src="../../../assets/google.jpg" alt="Google"></button>
-            <span><a routerLink="/inscrever-se">Inscreva-se</a></span>
-        </mat-card-actions>
-    </mat-card-content>
-</mat-card>
+<main class="html">
+    <div class="container">
+        <div class="img">
+            <img src="../../../assets/login.jpg" alt="">
+        </div>
+        <div class="login">
+            <h2>Login</h2>
+            <form [formGroup]="formLogin">
+                <input type="email" placeholder="E-mail" formControlName="email">
+                <input type="password" placeholder="Senha" formControlName="senha">
+            </form>
+            <button type="submit" (click)="signInEmailAndPassword()">Entrar</button>
+            <button (click)="signInGoogle()"><img src="../../../assets/google.png" alt="google" class="image-google"></button>
+            <a routerLink="/inscrever-se">Inscreva-se</a>
+        </div>
+    </div>
+</main>

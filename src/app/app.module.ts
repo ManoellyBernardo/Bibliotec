@@ -8,7 +8,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './views/login/login.component';
 import { InscreverComponent } from './views/inscrever/inscrever.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './views/home/home.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MaterialModule } from './material/material/material.module';
@@ -43,7 +43,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AngularFireAuthModule,
     MaterialModule,
     AngularFireStorageModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

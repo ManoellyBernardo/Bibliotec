@@ -1,11 +1,9 @@
-import { Status } from "../status";
-
 export interface Livro {
     id?: string;
     leitor: string;
     titulo: string;
     dataEmprestimo: Date;
-    status: Status;
+    status: string;
     capa: string;
     categoria: string;
     autor: string;

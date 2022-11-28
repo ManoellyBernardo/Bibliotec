@@ -41,7 +41,7 @@ export class LivroService {
         console.error(error);
         return EMPTY;
       })
-    );
+    )
   }
 
   public findById(id: string): Observable<any> {
@@ -57,7 +57,7 @@ export class LivroService {
         console.error(error);
         return EMPTY;
       })
-    );
+    )
   }
 
   public deleteLivro(id: string) {
@@ -68,7 +68,7 @@ export class LivroService {
         console.error(error);
         return EMPTY;
       })
-    );
+    )
   }
 
   public updateLivro(livro: Livro) {
@@ -79,6 +79,6 @@ export class LivroService {
         console.error(error);
         return EMPTY;
       })
-    );
+    )
   }
 }

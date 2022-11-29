@@ -50,7 +50,7 @@ const routes: Routes = [
     title: "Novo Emprestimo"
   },
   {
-    path: 'editar_emprestimo',
+    path: 'dashboard/editar_emprestimo/:id',
     component: EditarEmprestimoComponent,
     canActivate: [AuthGuardsGuard],
     title: "Editar Emprestimo"

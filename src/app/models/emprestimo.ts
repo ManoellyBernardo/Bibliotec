@@ -1,10 +1,11 @@
 import { Livro } from "./livro";
 
-export interface Leitor {
+export interface Emprestimo {
     id?: string;
     leitor: string;
     email: string;
-    dataEmprestimo: Date;
+    dataEmprestimo: string;
     telefone: string;
     status: string;
+    livro?: Livro;
 }

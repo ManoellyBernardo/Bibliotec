@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, from, EMPTY } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Leitor } from '../models/leitor';
+import { Emprestimo } from '../models/emprestimo';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class EmprestimoService {
     private notification: NotificationService
   ) { }
 
-  public createLending(emprestimo: Leitor): Observable<any> {
+  public createLending(emprestimo: Emprestimo): Observable<any> {
     const promise = this.firestore.collection("emprestimos").add(emprestimo);
     return from(promise).pipe(
       catchError(error => {
@@ -31,7 +31,7 @@ export class EmprestimoService {
     return from(promise).pipe(
       map((response: any) => {
         return response.docs.map((doc: any) => {
-          const emprestimo: Leitor = doc.data() as Leitor;
+          const emprestimo: Emprestimo = doc.data() as Emprestimo;
           emprestimo.id = doc.id;
           return emprestimo;
         })
@@ -48,7 +48,7 @@ export class EmprestimoService {
     const promise = this.firestore.collection("emprestimos").doc(id).get();
     return from(promise).pipe(
       map(doc => {
-        const emprestimo: Leitor = doc.data() as Leitor;
+        const emprestimo: Emprestimo = doc.data() as Emprestimo;
           emprestimo.id = doc.id;
           return emprestimo;
       }),
@@ -71,8 +71,8 @@ export class EmprestimoService {
     )
   }
 
-  public updateLending(emprestimo: Leitor) {
-    const promise = this.firestore.collection("livros").doc(emprestimo.id).update(emprestimo);
+  public updateLending(emprestimo: Emprestimo) {
+    const promise = this.firestore.collection("emprestimos").doc(emprestimo.id).update(emprestimo);
     return from(promise).pipe(
       catchError(error => {
         this.notification.showMessage("Erro ao atualizar emprestimo.");

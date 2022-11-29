@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Leitor } from 'src/app/models/leitor';
+import { Emprestimo } from 'src/app/models/emprestimo';
 import { Livro } from 'src/app/models/livro';
 import { EmprestimoService } from 'src/app/services/emprestimo.service';
 import { LivroService } from 'src/app/services/livro.service';
@@ -29,7 +29,7 @@ export class NovoEmprestimoComponent implements OnInit {
       leitor: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
       telefone: ["", [Validators.required]],
-      status: ["", [Validators.required]],
+      status: [[], [Validators.required]],
       livro: [{}, [Validators.required]]
     })
   }
@@ -47,7 +47,8 @@ export class NovoEmprestimoComponent implements OnInit {
 
   public createLending(): void {
     if (this.formNovoEmprestimo.valid) {
-      const novoEmprestimo: Leitor = this.formNovoEmprestimo.value;
+      const novoEmprestimo: Emprestimo = this.formNovoEmprestimo.value;
+      novoEmprestimo.dataEmprestimo = new Date().toLocaleDateString();
       this.emprestimoService.createLending(novoEmprestimo).subscribe(response => {
         this.notification.showMessage("Novo empréstimo cadastrado com sucesso.");
         this.router.navigate(["/dashboard"]);

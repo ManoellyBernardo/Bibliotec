@@ -2,10 +2,6 @@
 <div class="container">
     <form [formGroup]="formAtualizarEmprestimo" class="form">
         <h1>Editar Empréstimo</h1>
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Leitor</mat-label>
-            <input type="text" matInput placeholder="Leitor" formControlName="leitor">
-        </mat-form-field>
 
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>E-mail</mat-label>
@@ -19,18 +15,11 @@
 
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Status</mat-label>
-            <mat-select>
-                <mat-option type="text"  matInput placeholder="Status" *ngFor="let status of statusList" formControlName="status" [value]="status">{{status}}</mat-option>
+            <mat-select formControlName="status">
+                <mat-option type="text"  matInput placeholder="Status" *ngFor="let status of statusList" [value]="status">{{status}}</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Livro</mat-label>
-            <mat-select>
-                <mat-option type="text" matInput placeholder="Livro" formControlName="livro"></mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <button class="full-width btn-submit" mat-raised-button (click)="updateLending(formAtualizarEmprestimo.value)">Editar</button>
+        <button class="full-width btn-submit" mat-raised-button (click)="updateLending()">Editar</button>
     </form>
 </div>

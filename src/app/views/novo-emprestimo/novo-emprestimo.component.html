@@ -19,15 +19,15 @@
 
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Status</mat-label>
-            <mat-select>
-                <mat-option type="text"  matInput placeholder="Status" *ngFor="let status of statusList" formControlName="status" [value]="status">{{status}}</mat-option>
+            <mat-select formControlName="status">
+                <mat-option type="text"  matInput placeholder="Status" *ngFor="let status of statusList" [value]="status">{{status}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Livro</mat-label>
-            <mat-select>
-                <mat-option type="text" matInput placeholder="Livro"  *ngFor="let livro of livrosList" formControlName="livro" [value]="livro">{{livro.titulo}}</mat-option>
+            <mat-select formControlName="livro">
+                <mat-option type="text" matInput placeholder="Livro"  *ngFor="let livro of livrosList" [value]="livro">{{livro.titulo}}</mat-option>
             </mat-select>
         </mat-form-field>
 

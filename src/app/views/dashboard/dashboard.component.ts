@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetalhesComponent } from 'src/app/components/detalhes/detalhes.component';
-import { Leitor } from 'src/app/models/leitor';
+import { Emprestimo } from 'src/app/models/emprestimo';
 import { Livro } from 'src/app/models/livro';
 import { EmprestimoService } from 'src/app/services/emprestimo.service';
 import { NotificationService } from 'src/app/services/notification.service';
@@ -13,8 +13,10 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class DashboardComponent implements OnInit {
 
-  displayedColumns = ['leitor', 'titulo', 'dataEmprestimo', 'status', 'excluir', 'editar', 'detalhes', 'capa'];
-  dataSource!: Leitor[];
+  displayedColumns = ['leitor', 'titulo', 'dataEmprestimo', 'status', 'excluir', 'editar', 'capa'];
+  dataSource!: Emprestimo[];
+  livro!: Livro;
+  hidden: boolean = true;
 
   constructor(
     private emprestimoService: EmprestimoService,
@@ -39,10 +41,10 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  public openDetalhes(livros: Livro): void {
+  public openDetalhes(livro: Livro): void {
     this.dialog.open(DetalhesComponent, {
       width: "400px",
-      data: livros
+      data: livro
     });
   }
 }

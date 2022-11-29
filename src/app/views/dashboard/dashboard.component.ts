@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetalhesComponent } from 'src/app/components/detalhes/detalhes.component';
+import { Leitor } from 'src/app/models/leitor';
 import { Livro } from 'src/app/models/livro';
-import { LivroService } from 'src/app/services/livro.service';
+import { EmprestimoService } from 'src/app/services/emprestimo.service';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
@@ -13,10 +14,10 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class DashboardComponent implements OnInit {
 
   displayedColumns = ['leitor', 'titulo', 'dataEmprestimo', 'status', 'excluir', 'editar', 'detalhes', 'capa'];
-  dataSource!: Livro[];
+  dataSource!: Leitor[];
 
   constructor(
-    private livroService: LivroService,
+    private emprestimoService: EmprestimoService,
     private notification: NotificationService,
     private dialog: MatDialog
   ) { }
@@ -26,14 +27,14 @@ export class DashboardComponent implements OnInit {
   }
 
   private initializeTable(): void {
-    this.livroService.findAll().subscribe(livros => {
-      this.dataSource = livros;
+    this.emprestimoService.findAll().subscribe(emprestimos => {
+      this.dataSource = emprestimos;
     });
   }
 
   public deleteLivro(id: string): void {
-    this.livroService.deleteLivro(id).subscribe(response => {
-      this.notification.showMessage("Apagado.");
+    this.emprestimoService.deleteLending(id).subscribe(response => {
+      this.notification.showMessage("Emprestimo apagado.");
       this.initializeTable();
     });
   }

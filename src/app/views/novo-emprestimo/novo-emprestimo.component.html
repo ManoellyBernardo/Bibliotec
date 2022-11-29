@@ -27,7 +27,7 @@
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Livro</mat-label>
             <mat-select>
-                <mat-option type="text" matInput placeholder="Livro" formControlName="livro"></mat-option>
+                <mat-option type="text" matInput placeholder="Livro"  *ngFor="let livro of livrosList" formControlName="livro" [value]="livro">{{livro.titulo}}</mat-option>
             </mat-select>
         </mat-form-field>
 
